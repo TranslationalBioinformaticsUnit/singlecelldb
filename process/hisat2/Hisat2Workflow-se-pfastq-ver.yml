@@ -1,0 +1,48 @@
+# for prefetch and pfastq-dump
+run_id: RUN_ID
+read_type: single
+# hisat2 parameters.
+genome_index:
+  class: File
+  path: /path/to/reference/hg38.fa
+  secondaryFiles:
+    - class: File
+      path: /path/to/reference/hg38.fa.1.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.2.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.3.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.4.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.5.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.6.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.7.ht2
+    - class: File
+      path: /path/to/reference/hg38.fa.8.ht2
+  genome_version: GRCh38
+down_trans_assem: true
+enable_cufflinks_output: true
+hisat2_result_file: "ID".sam
+
+# samtools view parameters
+bs_option: true
+samtools-view_result_file: "ID".bam
+
+# samtools sort parameters
+samtools-sort_result_file: "ID".sort
+
+# samtools index parameters:
+samtools-index_result_file: "ID".sort.bam.bai
+
+# cufflinks parameters:
+annotation_file:
+  class: File
+  path: /path/to/reference/annotation/hg38.gtf
+
+# stringtie parameters:
+stringtie_result_file: stringtieout.gtf
+
+thread: 8

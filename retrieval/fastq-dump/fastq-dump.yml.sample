@@ -1,0 +1,3 @@
+sraFiles:
+  - class: File
+    path: _PATH_TO_SRA_FILE_

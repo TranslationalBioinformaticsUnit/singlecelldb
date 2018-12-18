@@ -1,0 +1,51 @@
+# hisat2 parameters.
+fq1:
+  class: File
+  path: /path/to/rnaseqpair/"ID"_1.fastq
+fq2:
+  class: File
+  path: /path/to/rnaseqpair/"ID"_2.fastq
+genome_index:
+  class: File
+  path: /path/to/reference/hg19.fa
+  secondaryFiles:
+    - class: File
+      path: /path/to/reference/hg19.fa.1.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.2.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.3.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.4.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.5.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.6.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.7.ht2
+    - class: File
+      path: /path/to/reference/hg19.fa.8.ht2
+  genome_version: GRCh37
+down_trans_assem: true
+enable_cufflinks_output: true
+hisat2_result_file: "ID".sam
+
+# samtools view parameters
+bs_option: true
+samtools-view_result_file: "ID".bam
+
+# samtools sort parameters
+samtools-sort_result_file: "ID".sort
+
+# samtools index parameters:
+samtools-index_result_file: "ID".sort.bam.bai
+
+# cufflinks parameters:
+annotation_file:
+  class: File
+  path: /path/to/reference/annotation/hg19.gtf
+
+# stringtie parameters:
+stringtie_result_file: stringtieout.gtf
+
+thread: 8
